@@ -3,6 +3,7 @@ import dotenv from 'dotenv'
 import cookieParser from 'cookie-parser'
 import authRoutes from './routes/auth.routes.js'
 import messagesRoutes from './routes/message.routes.js'
+import userRoutes from './routes/user.routes.js'
 import connectMongoDB from './database/connectMongoDB.js'
 
 dotenv.config()
@@ -18,6 +19,7 @@ app.get('/', (req, res) => {
 
 app.use('/api/auth', authRoutes)
 app.use('/api/messages', messagesRoutes)
+app.use('/api/user', userRoutes)
 
 app.listen(PORT, () => {
   console.log(`\nServer is running \n\nClick the link to access: \n\nhttp://localhost:${PORT} \n\n${connectMongoDB()}`)
